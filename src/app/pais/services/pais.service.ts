@@ -19,4 +19,17 @@ export class PaisService {
     return this.http.get<CountryPais[]>(url)
   }
 
+  buscarCapital(termino: string): Observable<CountryPais[]> {
+    const url = `${this.apiUrl}/capital/${termino}`
+    return this.http.get<CountryPais[]>(url)
+  }
+
+  getPaisPorAlpha(id: string): Observable<CountryPais[]> {
+    const url = `${this.apiUrl}/alpha/${id}`
+    return this.http.get<CountryPais[]>(url)
+  }
+
+
+
+
 }

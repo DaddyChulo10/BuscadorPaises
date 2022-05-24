@@ -16,8 +16,9 @@ export class PorPaisComponent {
 
   constructor(private paisService: PaisService) { }
 
-  buscar() {
+  buscar(termino: string) {
     this.hayError = false
+    this.termino = termino
     //console.log(this.termino)
     //Llama el servicio y se obtiene el subscribe, con el constructor
     this.paisService.buscarPais(this.termino)
@@ -29,6 +30,11 @@ export class PorPaisComponent {
         this.hayError = true
         this.interpais = []
       })
-
   }
+
+  sugerencias( termino: string ) {
+    this.hayError = false
+    //Hay error
+  }
+
 }

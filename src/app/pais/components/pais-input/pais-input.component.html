@@ -1,0 +1,10 @@
+<form class="row" (ngSubmit)="buscar()" autocomplete="off">
+    <div class="col-9">
+      <input  (input)="teclaPresionada()" [(ngModel)]="termino" type="text" name="termino" class="form-control" [placeholder]="placeholder">
+    </div>
+
+    <div class="col-3">
+      <button class="btn btn-dark mb-3">Buscar</button>
+    </div>
+
+  </form>
