@@ -13,6 +13,8 @@ export class PorPaisComponent {
   termino: string = ''
   hayError: boolean = false
   interpais: CountryPais[] = []
+  paisesSugeridos: CountryPais[] = [];
+  mostrarSugerencia: boolean = false
 
   constructor(private paisService: PaisService) { }
 
@@ -29,12 +31,28 @@ export class PorPaisComponent {
       }, (err) => {
         this.hayError = true
         this.interpais = []
-      })
+      });
   }
 
-  sugerencias( termino: string ) {
+  sugerencias(termino: string) {
+    if (termino == '') {
+      this.mostrarSugerencia = false
+    }else{
+      this.mostrarSugerencia = true
+    }
     this.hayError = false
-    //Hay error
+    this.termino = termino
+    
+
+
+
+    this.paisService.buscarPais(termino)
+      .subscribe(paises => this.paisesSugeridos = paises.splice(0, 5), (err) => this.paisesSugeridos = [])
+  }
+
+  buscarSugerido(termino: string) {
+    this.buscar(termino);
+
   }
 
 }

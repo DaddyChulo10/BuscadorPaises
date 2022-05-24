@@ -1,6 +1,6 @@
 <h2>Por Capital</h2>
 <hr>
-<div class="row">
+<div class="row animate__animated animate__fadeIn">
   <div class="col">
     <app-pais-input placeholder="Buscar Capital..." (onEnter)="buscar( $event )" (onDebunce)="sugerencias($event)"></app-pais-input>
   </div>
@@ -12,7 +12,7 @@
   No se encontro nada con el termino de: {{ termino }}
 </div>
 
-<div *ngIf="interpais.length > 0" class="row">
+<div *ngIf="interpais.length > 0" class="row animate__animated animate__fadeIn">
   <div class="col">
     <app-pais-tabla [paises]="interpais"></app-pais-tabla>
   </div>
